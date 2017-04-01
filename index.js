@@ -3,8 +3,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-	//console.log(req);
-	res.send(req.headers);
+	const answer = {
+		ip: req.headers[x-fowarded-for],
+	};
+	res.send(answer);
 });
 
 app.listen(port, () => {
