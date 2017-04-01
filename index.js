@@ -4,7 +4,9 @@ const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
 	const answer = {
-		ip: req.headers["x-forwarded-for"],
+		IP: req.headers["x-forwarded-for"],
+		OS: req.headers["user-agent"].split(" (")[1].split(") ")[0],
+		Language: req.headers["accept-language"].split(",")[0],
 	};
 	res.send(answer);
 });
